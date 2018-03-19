@@ -1,5 +1,4 @@
 import numpy as np
-# Dont have the planar_utils - Need to write sigmoid function
 
 def layer_sizes(X, Y):
     """Returns the sizes of each layer.
@@ -68,7 +67,7 @@ def sigmoid(Z):
     """
 
     S = (1 / (1 + np.exp(-Z)))
-    
+
     return S
 
 def forward_propagation(X, parameters):
