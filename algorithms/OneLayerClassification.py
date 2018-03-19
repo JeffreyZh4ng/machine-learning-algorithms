@@ -1,5 +1,4 @@
 import numpy as np
-from planar_utils import sigmoid
 # Dont have the planar_utils - Need to write sigmoid function
 
 def layer_sizes(X, Y):
@@ -55,6 +54,23 @@ def initialize_parameters(n_x, n_h, n_y):
 
     return parameters
 
+def sigmoid(Z):
+    """Calculates the sigmoid of the input value
+
+    Calculates the sigmoid of Z
+
+    Args:
+        Z (double): The Z value calcuated from the biases and inputs
+
+    Returns:
+        S (double): The computed sigmoid of the input Z
+
+    """
+
+    S = (1 / (1 + np.exp(-Z)))
+    
+    return S
+
 def forward_propagation(X, parameters):
     """Calculates the values in forward propagation.
 
@@ -70,6 +86,7 @@ def forward_propagation(X, parameters):
         cache: Map containing the Z1, A1, Z2, A2 values needed to calculate the gradients
 
     """
+
     W1 = parameters['W1']
     b1 = parameters['b1']
     W2 = parameters['W2']
@@ -128,6 +145,7 @@ def backward_propagation(parameters, cache, X, Y):
         grads: The gradients for the weights and biases calculated in backward_propagation
 
     """
+
     m = X.shape[1]
 
     W1 = parameters['W1']
